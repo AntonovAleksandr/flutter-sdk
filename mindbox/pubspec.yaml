@@ -24,6 +24,7 @@ dependencies:
     git:
      url: https://github.com/mindbox-cloud/flutter-sdk.git
      path: mindbox_ios
+     ref: 4eb0e61b409d1e3ad0174bc47d096cd45d03cc79
   mindbox_platform_interface: ^2.1.1
 
 dev_dependencies:
