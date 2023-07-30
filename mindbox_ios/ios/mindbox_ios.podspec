@@ -15,8 +15,8 @@ The implementation of 'mindbox' plugin for the iOS platform
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.dependency 'Flutter'
-  s.dependency 'Mindbox', '2.6.3'
-  s.dependency 'MindboxNotifications', '2.6.3'
+  s.dependency 'Mindbox'
+  s.dependency 'MindboxNotifications'
   s.platform = :ios, '10.0'
 
   # Flutter.framework does not contain a i386 slice.

@@ -7,7 +7,6 @@ import android.os.Looper
 import androidx.annotation.NonNull
 import cloud.mindbox.mobile_sdk.Mindbox
 import cloud.mindbox.mobile_sdk.MindboxConfiguration
-import cloud.mindbox.mobile_sdk.inapp.presentation.InAppCallback
 import cloud.mindbox.mobile_sdk.logger.Level
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
@@ -26,19 +25,19 @@ class MindboxAndroidPlugin : FlutterPlugin, MethodCallHandler, ActivityAware, Ne
     private var tokenSubscription: String? = null
     private lateinit var channel: MethodChannel
 
-    inner class InAppCallbackImpl : InAppCallback {
-        override fun onInAppClick(id: String, redirectUrl: String, payload: String) {
-            Handler(Looper.getMainLooper()).post {
-                channel.invokeMethod("onInAppClick", listOf(id, redirectUrl, payload))
-            }
-        }
+    // inner class InAppCallbackImpl : InAppCallback {
+    //     override fun onInAppClick(id: String, redirectUrl: String, payload: String) {
+    //         Handler(Looper.getMainLooper()).post {
+    //             channel.invokeMethod("onInAppClick", listOf(id, redirectUrl, payload))
+    //         }
+    //     }
 
-        override fun onInAppDismissed(id: String) {
-            Handler(Looper.getMainLooper()).post {
-                channel.invokeMethod("onInAppDismissed", id)
-            }
-        }
-    }
+    //     override fun onInAppDismissed(id: String) {
+    //         Handler(Looper.getMainLooper()).post {
+    //             channel.invokeMethod("onInAppDismissed", id)
+    //         }
+    //     }
+    // }
 
     companion object {
         @Deprecated(
@@ -76,7 +75,7 @@ class MindboxAndroidPlugin : FlutterPlugin, MethodCallHandler, ActivityAware, Ne
                         .shouldCreateCustomer(shouldCreateCustomer)
                         .build()
                     Mindbox.init(context, config, listOf())
-                    Mindbox.registerInAppCallback(InAppCallbackImpl())
+                  //  Mindbox.registerInAppCallback(InAppCallbackImpl())
                     result.success("initialized")
                 } else {
                     result.error("-1", "Initialization error", "Wrong argument type")
