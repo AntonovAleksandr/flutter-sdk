@@ -55,7 +55,7 @@ class Mindbox {
   /// You can call this method multiple times to set new configuration params.
   /// Read more about [Configuration] parameter.
   void init({required Configuration configuration}) {
-    MindboxPlatform.instance.init(configuration: configuration);
+    await MindboxPlatform.instance.init(configuration: configuration);
   }
 
   /// Method to obtain device UUID.
